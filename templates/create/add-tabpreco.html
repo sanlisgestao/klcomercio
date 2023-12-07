@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    <meta name='description' content='Website'>
+    <meta name='author' content='Angelita Santos'>
+    <meta name='keyWords' content='website'>
+    <meta name='robots' content='index, follow'>
+    <meta name='classification' content='site, website'>
+
+    <title></title>
+
+    <link rel='shortcut icon' href='../../static/img/logo.png' type='image/x-icon'>
+    <script src='../../static/painel/cdn/jquery-3.7.0.js'></script>
+    <link rel='stylesheet' href='../../static/painel/cdn/bootstrap-icons.css'>
+    <link rel='stylesheet' href='../../static/painel/css/painel.css'>
+    <link rel='stylesheet' href='../../static/painel/bootstrap/css/bootstrap.css'>
+    <link rel='stylesheet' href='../../static/painel/bootstrap/css/bootstrap-grid.css'>
+    <link rel='stylesheet' href='../../static/painel/bootstrap/css/bootstrap-reboot.css'>
+</head>
+
+<body class='container-fluid'>
+
+    <header id='nav-navbar'></header>
+
+    <main class='mt-2 mb-5'>
+
+        <form action='' id='form-action' method='post' class='needs-validation' novalidate name='formulario'>
+
+            <section class='card'>
+
+                <header class='card-header text-center bg-success text-light'>
+                    <section class='mt-3'>
+                        <div class='mb-3'>
+                            <h3 class=''>TABELA PREÇO</h3>
+                        </div>
+                    </section>
+                </header>
+
+                <div class='card-body'>
+
+                    <section class='row'>
+
+                        <div class='col-sm-12'>
+
+                            <div class='row'>
+                                <div class='col-sm-2'>
+                                    <div class='input-group mb-3'>
+                                        <span class='input-group-text'>Codigo</span>
+                                        <input type='text' class='form-control input-group-text' autocomplete='off'
+                                            name='id_tabpreco' onclick='SearchEditTabela(1);'>
+                                    </div>
+                                </div>
+                                <div class='col-sm-4'>
+                                    <div class='input-group mb-3'>
+                                        <span class='input-group-text'>Descrição</span>
+                                        <input type='text' class='form-control' name='tabpreco_nm' required
+                                            autocomplete='off' minlength='4'>
+                                        <div class='input-group-append'>
+                                            <button class='btn btn-outline-secondary busca' type='button'
+                                                onclick='showDataEdit();'><i class='bi bi-search'
+                                                    onmouseenter='refresh();'></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='col-sm-3'>
+                                    <div class='input-group mb-3'>
+                                        <span class='input-group-text'>Data Inicio</span>
+                                        <input type='date' class='form-control text-center input-group-text'
+                                            name='tabpreco_dt_inic'>
+                                    </div>
+                                </div>
+                                <div class='col-sm-3'>
+                                    <div class='input-group mb-3'>
+                                        <span class='input-group-text'>Data Termino</span>
+                                        <input type='date' class='form-control text-center input-group-text'
+                                            name='tabpreco_dt_term'>
+                                    </div>
+                                </div>
+                            </div> <!-- codigo, descricao, dtinic, dtterm -->
+
+                            <div class='accordion mb-3' id='accordionExample'>
+                                <div class='card'>
+                                    <div class='card-header' id='headingOne'>
+                                        <h5 class='mb-0'>
+                                            <button class='btn btn-link' type='button' data-toggle='collapse'
+                                                data-target='#collapseOne' aria-expanded='true'
+                                                aria-controls='collapseOne'>
+                                                <h6 class='mt-2'>Composição</h6>
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id='collapseOne' class='collapse' aria-labelledby='headingOne'
+                                        data-parent='#accordionExample'>
+                                        <div class='card-body'>
+
+                                            <div class='row'>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>Comissao</span>
+                                                        <select class='form-control' name='comissao_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='comissao' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>Frete</span>
+                                                        <select class='form-control' name='frete_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='frete' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>MRG Atacado</span>
+                                                        <select class='form-control' name='mrg_atacado_ativo'>
+                                                            <option value='SIM'>SIM</option>
+                                                            <option value='NAO'>NÃO</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='mrg_atacado'
+                                                            min='0.00' max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>MRG Varejo</span>
+                                                        <select class='form-control' name='mrg_varejo_ativo'>
+                                                            <option value='SIM'>SIM</option>
+                                                            <option value='NAO'>NÃO</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='mrg_varejo'
+                                                            min='0.00' max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- comissao, frete, margem atacado, margem varejo -->
+
+                                            <div class='row'>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>PIS</span>
+                                                        <select class='form-control' name='pis_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='pis' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>COFINS</span>
+                                                        <select class='form-control' name='cofins_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='cofins' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>ICM</span>
+                                                        <select class='form-control' name='icm_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='icm' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>IPI</span>
+                                                        <select class='form-control' name='ipi_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='ipi' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- pis, cofins, icm, ipi -->
+
+                                            <div class='row'>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>Simples</span>
+                                                        <select class='form-control' name='simples_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='simples' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>ISS</span>
+                                                        <select class='form-control' name='iss_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='iss' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>Outros</span>
+                                                        <select class='form-control' name='outros_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='outros' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                        <input type='hidden' class='form-control text-center'
+                                                            name='ativo' value='SIM'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>Ativo</span>
+                                                        <input autocomplete='off' type='text'
+                                                            class='form-control text-center input-group-text'
+                                                            name='ativo' value='SIM'>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- simples, icms_st, mva, outros -->
+
+                                            <div class='row'>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>ICMS-ST</span>
+                                                        <select class='form-control' name='icm_st_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='icm_st' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                                <div class='col-sm-3'>
+                                                    <div class='input-group mb-3'>
+                                                        <span class='input-group-text'>MVA</span>
+                                                        <select class='form-control' name='mva_ativo'>
+                                                            <option value='NAO'>NÃO</option>
+                                                            <option value='SIM'>SIM</option>
+                                                        </select>
+                                                        <input autocomplete='off' type='number'
+                                                            class='form-control text-center' name='mva' min='0.00'
+                                                            max='10.000.00' step='0.01'>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- icms_st, mva -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <input type='hidden' name='IsNew' id='IsNew' value='Y'>
+                    <input type='hidden' name='StartRow' id='StartRow' value='0'>
+                    <input type='hidden' name='RowCount' id='RowCount' value='0'>
+
+                    <h6>Itens da Tabela</h6>
+
+                    <table class='table table-sm table-responsive-sm table-bordered'>
+                        <col class=m01>
+                        <col class=m02>
+                        <col class=m03>
+                        <col class=m04>
+                        <col class=m05>
+                        <col class=m06>
+                        <col class=m07>
+                        <thead class='table-dark'>
+                            <tr>
+                                <th scope='col' class='text-center'>Seq</th>
+                                <th scope='col' class='text-center'>Código</th>
+                                <th scope='col' class='text-center'>Item</th>
+                                <th scope='col' class='text-center'>Estoque</th>
+                                <th scope='col' class='text-center'>Custo Atual</th>
+                                <th scope='col' class='text-center'>Preço Atacado</th>
+                                <th scope='col' class='text-center'>Preço Varejo</th>
+                                <th scope='col' class='no-print'>
+                                    <button type='button' class='btn btn-sm btn-warning' onclick='BtnAdd();'>+</button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id='TBody'>
+                            <tr id='TRow' class='d-none'>
+                                <th scope='row' class='text-center pt-2' name='seq'></th>
+                                <td><input type='text' class='form-control text-center table-width-qty' name='id_item'
+                                        autocomplete='off' required></td>
+                                <td>
+                                    <input type='text' class='form-control table-width-desc' name='item_nm'
+                                        list='dropdownItens' autocomplete='off' required>
+                                    <datalist id='dropdownItens'></datalist>
+                                </td>
+                                <input type='hidden' class='form-control text-right table-width-value' name='qty'
+                                    value='1'>
+
+                                <td><input type='number'
+                                        class='form-control text-right table-width-value input-group-text'
+                                        name='qtd_estoque' min='1' required>
+                                </td>
+                                <td><input type='number'
+                                        class='form-control text-right table-width-value input-group-text'
+                                        name='cst_atual' min='0.00' max='100.000.00' step='0.01'>
+                                </td>
+                                <td><input type='number'
+                                        class='form-control text-right table-width-value input-group-text'
+                                        name='preco_atacado' min='0.00' max='100.000.00' step='0.01'>
+                                </td>
+                                <td><input type='number'
+                                        class='form-control text-right table-width-value input-group-text'
+                                        name='preco_varejo' min='0.00' max='100.000.00' step='0.01'>
+                                </td>
+                                <td class='no-print'><button type='button' class='btn btn-sm btn-danger'
+                                        onclick='BtnDel(this);'>X</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <section class='row'>
+
+                        <div class='col-sm-4'>
+                        </div>
+
+                        <div class='col-sm-4'>
+                        </div>
+
+                        <div class='col-sm-4'>
+
+                            <div class='row text-center mt-3 mb-4'>
+                                <div class='col-sm-6'>
+                                    <button type='submit' class='btn btn-primary px-3 my-1'>Salvar</button>
+                                </div>
+                                <div class='col-sm-6'>
+                                    <a href='../../templates/read/list-tabpreco.html'>
+                                        <button type='button' class='btn btn-danger px-3 my-1'>Cancelar
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class='row text-center'>
+                                <div class='col-sm-6'>
+                                    <button type='button' class='btn px-2 my-1 btn-success'
+                                        onclick='GetPrint();'>Imprimir</button>
+                                </div>
+                                <div class='col-sm-6'>
+                                    <button type='button' class='btn px-2 my-1 btn-success'
+                                        onclick='showDataEdit()'>Lista Tabelas
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </section>
+
+        </form>
+
+        <section id='nav-breadcrumb-registros'>
+            <script type='text/javascript' src='../../static/js/load.js'></script>
+        </section>
+
+    </main>
+
+    <section id='modalShow-Tabela'></section>
+
+    <script src='https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js'></script>
+    <script src='../../static/painel/js/firebase-init.js'></script>
+    <script src='../../static/painel/js/auth-guard.js'></script>
+
+    <script type='text/javascript' src='../../static/painel/js/load.js'></script>
+    <script type='text/javascript' src='../../static/painel/js/global/versao_title.js'></script>
+
+    <script type='text/javascript' src='../../static/painel/js/modules/register-action.js'></script>
+    <script type='text/javascript' src='../../static/painel/js/modules/show-data-cad-tabpreco.js'></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'
+        integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49'
+        crossorigin='anonymous'></script>
+    <script type='text/javascript' src='../../static/painel/bootstrap/js/bootstrap.js'></script>
+    <script type='text/javascript' src='../../static/painel/bootstrap/js/bootstrap.bundle.js'></script>
+
+</body>
+
+</html>
