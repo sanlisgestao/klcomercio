@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Website">
+    <meta name="author" content="Angelita Santos">
+    <meta name="keyWords" content="website">
+    <meta name="robots" content="index, follow">
+    <meta name="classification" content="site, website">
+
+    <title></title>
+
+    <link rel="shortcut icon" href="../../static/img/logo.png" type="image/x-icon">
+    <script src="../../static/cdn/jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href="../../static/cdn/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../static/css/painel.css">
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap-reboot.css">
+</head>
+
+<body class="container-fluid">
+
+    <header id="nav-navbar">
+        <script type="text/javascript" src="../../static/js/load.js"></script>
+    </header>
+
+    <main class="mt-2 mb-5 card text-center">
+
+        <header class="card-header text-center bg-success text-light">
+            <section class="mt-3">
+                <div class="mb-3">
+                    <h3 class="">PAGAR</h3>
+                </div>
+            </section>
+        </header>
+
+        <section id="nav-breadcrumb-financeiro">
+            <script type="text/javascript" src="../../static/js/load.js"></script>
+        </section>
+
+        <section class="card-body">
+
+            <div class="row mb-3">
+                <div class="col-sm-6 input-group mb-2">
+                    <span class="input-group-text">Número</span>
+                    <input type="text" class="form-control text-center" id="" name="" placeholder="Digite o numero"
+                        autocomplete="off" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" onclick="SearchRegistros();"><i
+                                class="bi bi-search"></i></button>
+                    </div>
+                    <div class="invalid-tooltip">
+                        Por favor, coloque um número válido.
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-2">
+                    <form class="form-inline my-1 my-lg-0">
+                        <a href="../../templates/create/add-pagar.html" class="btn btn-success">Adicionar Novo</a>
+                    </form>
+                </div>
+            </div>
+    
+            <table id="bodymargem" class="table table-sm table-responsive table-hover">
+                <tbody id="TBodyList">
+                </tbody>
+            </table>
+
+        </section>
+
+        <section id="nav-breadcrumb-cadastros">
+            <script type="text/javascript" src="../../static/js/load.js"></script>
+        </section>
+
+    </main>
+
+    <script src='https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js'></script>
+    <script src='../../static/js/firebase-init.js'></script>
+    <script src='../../static/js/auth-guard.js'></script>
+    <script type="text/javascript" src="../../static/js/global/versao_title.js"></script>
+    <!--
+    <script type="text/javascript" src="../../static/js/modules/show-data-financeiro.js"></script>
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../static/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../../static/bootstrap/js/bootstrap.bundle.js"></script>
+
+</body>
+
+</html>

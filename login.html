@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    <meta name='description' content='Website'>
+    <meta name='author' content='Angelita Santos'>
+    <meta name='keyWords' content='website'>
+    <meta name='robots' content='index, follow'>
+    <meta name='classification' content='site, website'>
+
+    <title>Login</title>
+
+    <link rel='shortcut icon' href='./static/img/logo.png' type='image/x-icon'>
+    <link rel='stylesheet' href='./static/css/reset.css'>
+    <link rel='stylesheet' href='./static/css/global.css'>
+    <link rel='stylesheet' href='./static/css/styles.css'>
+    <link rel='stylesheet' href='./static/css/responsive.css'>
+</head>
+
+<body class='centralize'>
+
+    <main class='main centralize'>
+
+        <form action=''>
+
+            <fieldset>
+
+                <h1>Login</h1>
+
+                <section>
+                    <div>
+                        <label>Email</label>
+                        <input type='email' name='email' id='email' onchange='onChangeEmail()'>
+                        <span class='error' id='email-required-error'>Email é obrigatório</span>
+                        <span class='error' id='email-invalid-error'>Email é inválido</span>
+                    </div>
+
+                    <div>
+                        <label>Senha</label>
+                        <input type='password' name='password' id='password' onchange='onChangePassword()'>
+                        <span class='error' id='password-required-error'>Senha é obrigatória</span>
+                    </div>
+                </section>
+
+                <section class='form-button'>
+                    <button type='button' class='solid' disabled='true' id='login-button'
+                        onclick='login()'>Entrar</button>
+                    <button type='button' class='outline' onclick='register()'>Home</button>
+                    <button type='button' class='clear' disabled='true' id='recover-password-button'
+                        onclick='recoverPassword()'>Recuperar Senha</button>
+                </section>
+
+            </fieldset>
+            
+        </form>
+
+    </main>
+
+    <script src='https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js'></script>
+    <script src='./static/js/firebase-init.js'></script>
+    <script src='./static/js/global/loading.js'></script>
+    <script src='./static/js/global/messages.js'></script>
+    <script src='./static/js/user/user-validations.js'></script>
+    <script src='./static/js/user/user-login.js'></script>
+
+</body>
+
+</html>

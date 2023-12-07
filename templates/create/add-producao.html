@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Website">
+    <meta name="author" content="Angelita Santos">
+    <meta name="keyWords" content="website">
+    <meta name="robots" content="index, follow">
+    <meta name="classification" content="site, website">
+
+    <title></title>
+
+    <link rel="shortcut icon" href="../../static/img/logo.png" type="image/x-icon">
+    <script src="../../static/cdn/jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href="../../static/cdn/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../static/css/painel.css">
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap-reboot.css">
+</head>
+
+<body class="container-fluid">
+
+    <header id="nav-navbar">
+        <script type="text/javascript" src="../../static/js/load.js"></script>
+    </header>
+
+    <main class="mt-2 mb-5">
+
+        <form action="" id="form-action" method="post" class="needs-validation" novalidate name="formulario">
+
+            <section class="card">
+
+                <header class="card-header text-center bg-success text-light">
+                    <section class="row mt-3">
+
+                        <div class="col-sm-9 mb-2">
+                            <h3 class="">PRODUÇÃO</h3>
+                        </div>
+
+                        <div class="">
+                            <input type="hidden" class="form-control text-center" name="tipo_registro" value="PRODUCAO">
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Tipo</span>
+                                <select class="form-control" name="finalidade" id="dropdownFinalidade"
+                                    autocomplete="off">
+                                </select>
+                            </div>
+                        </div>
+
+                    </section>
+                </header>
+
+                <div class="card-body">
+
+                    <section class="row">
+
+                        <div class="col-sm-4">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Número</span>
+                                <input type="text" class="form-control text-center" id="inv_no" name="inv_no"
+                                    autocomplete="off" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        onclick="SearchRegistros();"><i class="bi bi-search"></i></button>
+                                </div>
+                                <div class="invalid-tooltip">
+                                    Por favor, coloque um número válido.
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Data</span>
+                                <input type="date" class="form-control text-center" name="reg_dt">
+                            </div>
+
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Status Reg</span>
+                                <select class="form-control status_registro" name="status_registro" id="dropdownStatusRegistro"></select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Item</span>
+                                <input type="text" class="text-center" style="width: 100px;" name="id_item">
+                                <input list="datalistPriceList" type="text" class="form-control" name="item_nm" required
+                                    autocomplete="off" minlength="4">
+                                <datalist id="datalistPriceList"></datalist>
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary busca" type="button"
+                                        onclick="ShowAllDataPriceList();"><i class="bi bi-search"></i></button>
+                                </div>
+                                <div class="invalid-tooltip">
+                                    Por favor, coloque um nome de parceiro válido. Mínimo 4 caracteres.
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text">Maquina</span>
+                                        <input type="text" class="form-control" name="machine">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text">Operador</span>
+                                        <input list="dropdownSellerList" autocomplete="off" type="text"
+                                            class="form-control" name="operator">
+                                        <datalist id="dropdownSellerList"></datalist>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text">Turno</span>
+                                        <input type="text" class="form-control" name="turno">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text">Qtde Prod</span>
+                                        <input type="number" class="form-control text-right" onkeyup="CalcProd(this);"
+                                            name="qtd_prod" min="1" value="1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <div class="input-group mb-2">
+                        <span class="input-group-text">Observ.</span>
+                        <input type="text" class="form-control" name="obs">
+                    </div>
+
+                    <input type="hidden" name="IsNew" id="IsNew" value="Y">
+                    <input type="hidden" name="StartRow" id="StartRow" value="0">
+                    <input type="hidden" name="RowCount" id="RowCount" value="0">
+
+                    <table class="table table-sm table-responsive-sm table-bordered my-4">
+                        <col class=m01>
+                        <col class=m03>
+                        <col class=m04>
+                        <col class=m05>
+                        <col class=m06>
+                        <col class=m07>
+                        <col class=m08>
+                        <col class=m09>
+                        <col class=m10>
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col" class="text-center">Seq</th>
+                                <th scope="col" class="text-center">Código</th>
+                                <th scope="col">Item</th>
+                                <th scope="col" class="text-center">Lote</th>
+                                <th scope="col" class="text-center">Val</th>
+                                <th scope="col" class="text-center">Qtd Total</th>
+                                <th scope="col" class="text-center">Cst Unit</th>
+                                <th scope="col" class="text-center">Total Item</th>
+                                <th scope="col" class="no-print">
+                                    <button type="button" class="btn btn-sm btn-warning" onclick="BtnAdd();">+</button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="TBody">
+                            <tr id="TRow" class="d-none">
+                                <th scope="row" class="text-center pt-2"></th>
+                                <td><input type="text" class="form-control text-center table-width-qty" name="id_ins"
+                                        autocomplete="off" required></td>
+                                <td>
+                                    <input type="text" class="form-control table-width-text" name="ins_nm"
+                                        list="datalistItemList" autocomplete="off" required>
+                                    <div class="invalid-feedback">
+                                        Include 1 item
+                                    </div>
+                                    <datalist id="datalistItemList"></datalist>
+                                </td>
+                                <td><input type="text" class="form-control text-center table-width-qty" name="lot"
+                                        autocomplete="off" required></td>
+                                <td><input type="date" class="form-control text-center table-width-value"
+                                        name="validate" autocomplete="on" required></td>
+
+                                <input type="hidden" class="form-control text-right table-width-value" name="qty"
+                                    min="1" required>
+                                <p class="invalid-feedback">
+                                    Coloque uma quantidade válida.
+                                </p>
+
+                                <td><input type="number" class="form-control text-right table-width-value"
+                                        name="qtyTotal" min="1" required onmouseenter="CalcProd(this);">
+                                    <p class="invalid-feedback">
+                                        Coloque uma quantidade válida.
+                                    </p>
+                                </td>
+                                <td><input type="number" class="form-control text-right table-width-value" name="price"
+                                        min="0.00" max="100.000.00" step="0.01" autocomplete="off" disabled>
+                                    <p class="invalid-feedback">
+                                        Coloque um preço válido.
+                                    </p>
+                                </td>
+                                <td><input type="number" class="form-control text-right table-width-value" name="amt"
+                                        disabled min="0.00" max="100.000.00" step="0.01">
+                                </td>
+                                <td class="no-print"><button type="button" class="btn btn-sm btn-danger"
+                                        onclick="BtnDel(this);">X</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <footer class="card-body">
+                    <section class="row">
+
+                        <div class="col-sm-4">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Total Itens</span>
+                                <input type="text" class="form-control text-center" id="RegTItem" name="reg_total_itens" disabled>
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Mão Obra</span>
+                                <input type="number" class="form-control text-right" id="RegAdd1" name="reg_add1"
+                                    min="0.00" step="0.01" onchange="GetTotalProd()">
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">GGF</span>
+                                <input type="number" class="form-control text-right" id="RegAdd2" name="reg_add2"
+                                    min="0.00" step="0.01" onchange="GetTotalProd()">
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Total Geral</span>
+                                <input type="text" class="form-control text-center" id="RegTotal" name="reg_total" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Info1</span>
+                                <input list="ListTypePay" autocomplete="off" type="text"
+                                    class="form-control text-center" id="PaymentType" name="type_1">
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Info2</span>
+                                <input type="text" class="form-control text-center" id="PaymentQtd" name="type_2"
+                                    min="1" step="1">
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Info3</span>
+                                <input type="text" class="form-control text-center payment_status" id="type_3"
+                                    name="payment_status" min="1" step="1">
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-4">
+
+                            <div class="row text-center mt-3 mb-4">
+                                <div class="col-sm-6">
+                                    <button type="submit" class="btn btn-primary px-3 my-1"
+                                        onclick="Validar()">Salvar</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="../../templates/read/list-producao.html">
+                                        <button type="button" class="btn btn-danger px-3 my-1">Cancelar
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="row text-center">
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn px-2 my-1 btn-success"
+                                        onclick="GetPrint();">Imprimir</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn px-2 my-1 btn-success"
+                                        onclick="ShowAllDataRegistros()">Lista Produção
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
+                </footer>
+
+            </section>
+
+        </form>
+
+        <section id="nav-breadcrumb-cadastros">
+            <script type="text/javascript" src="../../static/js/load.js"></script>
+        </section>
+
+    </main>
+
+    <section>
+        <div class="modal fade" id="modalListaRegistros" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Lista Produção</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body my-3">
+                        <table class="table table-sm table-responsive table-hover">
+                            <tbody id="TBodyAll">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalPriceList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Lista Itens</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body my-3">
+                        <table class="table table-sm table-responsive table-hover">
+                            <tbody id="TBodyPrice">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src='https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js'></script>
+    <script src='../../static/js/firebase-init.js'></script>
+    <script src='../../static/js/auth-guard.js'></script>
+    <script type="text/javascript" src="../../static/js/modules/register-action.js"></script>
+    <script type="text/javascript" src="../../static/js/global/versao_title.js"></script>
+    <script type="text/javascript" src="../../static/js/modules/data-listas-fill.js"></script>
+    <!--
+    <script type="text/javascript" src="../../static/js/modules/show-data-cadastros.js"></script>
+    <script type="text/javascript" src="../../static/js/modules/show-data-producao.js"></script>
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../static/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../../static/bootstrap/js/bootstrap.bundle.js"></script>
+
+</body>
+
+</html>
