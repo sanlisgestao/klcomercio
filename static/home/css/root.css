@@ -1,0 +1,147 @@
+/* ----------------------------------------------------------------- */
+/* ---------------------- Configuração Básica ---------------------- */
+/* ----------------------------------------------------------------- */
+
+
+:root {
+    --preto: #000000;
+    --branco: #FFFFFF;
+    --cinzaSilver: #A9A9A9;
+    --cinzaGainsboro: #DCDCDC;
+    --cinzaGrey21: #C0C0C0;
+    --verdeDarkGreen: #008000;
+    --verdeForestGreen: #2F4F4F;
+    --verdeYellowGreen: #2E8B57;
+    --color-blue: #4895ff;
+    --color-green: #028111;
+    --color-red: #b3404a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 2.7rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+h3 {
+    font-size: 2.1rem;
+}
+
+h4 {
+    font-size: 1.8rem;
+}
+
+h5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+h6 {
+    font-size: 1.2rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+a {
+    color: var(--preto);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--verdeYellowGreen);
+    text-decoration: none;
+}
+
+a button {
+    color: var(--branco);
+}
+
+input, select, textarea, button {
+    border: 1px solid var(--verdeDarkGreen);
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 275px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+select {
+    width: 275px;
+    height: 40px;
+    text-align-last: center;
+}
+
+textarea {
+    width: 275px;
+    height: 80px;
+    padding-top: 10px;
+    padding-left: 10px;
+    resize: none;
+}
+
+button {
+    width: 170px;
+    height: 40px;
+    background: var(--verdeForestGreen);
+    color: var(--branco);
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--verdeYellowGreen);
+    color: var(--cinzaGainsboro);
+}
+
+li {
+    list-style-type: none;
+    padding: 5px;
+}
+
+section {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 15px;
+}
+
+img {
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    margin: 10px;
+}
+
+footer div {
+    padding: 15px 0;
+}
+
+footer a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer a:hover {
+    color: var(--verdeYellowGreen);
+    text-decoration: none;
+}
