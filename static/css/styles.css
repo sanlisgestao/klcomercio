@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-dark: #222120;
+    --color-light: #DEDEDE;
+    --preto: #000000;
+    --branco: #FFFFFF;
+    --cinzaSilver: #A9A9A9;
+    --cinzaGainsboro: #DCDCDC;
+    --cinzaGrey21: #C0C0C0;
+    --verdeDarkGreen: #008000;
+    --verdeForestGreen: #2F4F4F;
+    --verdeYellowGreen: #2E8B57;
+    --color-01: rgb(45, 211, 111);
+    --color-blue: #4895ff;
+    --color-green: #028111;
+    --color-red: #b3404a;
+    --font-size-title: 2.25rem;
+    --font-size-subtitle: 1.75rem;
+    --font-size-text: 0.875rem;
+    --font-family-title: "Poppins", "Roboto", sans-serif;
+    --font-family-text: "DM Sans", "Roboto", sans-serif;
+}
+
+body {
+    background-color: var(--verdeForestGreen);
+    font: 300 var(--font-size-text) var(--font-family-text);
+}
+
+.main {
+    height: 100vh;
+}
+
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    padding: 10px;
+    text-align: right;
+}
+
+header button {
+    width: 100px;
+}
+
+.footer-home {
+    height: 100px;
+    background-color: #222120;
+    margin-top: 60px;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-home p {
+    margin: 0;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font: 600 var(--font-size-title) var(--font-family-title);
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    font: 600 var(--font-size-subtitle) var(--font-family-title);
+}
+
+form {
+    width: 400px;
+    box-shadow: 5px 5px 5px 5px var(--cinzaSilver);
+    border-radius: 5px;
+}
+
+fieldset {
+    margin: 10px;
+    border-radius: 5px;
+}
+
+input,
+button,
+select {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    width: -webkit-fill-available;
+}
+
+input {
+    border: none;
+    margin-top: 5px;
+}
+
+span,
+label {
+    display: block;
+}
+
+label {
+    margin: 0px 10px 0px 10px;
+}
+
+#transactions {
+    min-width: 280px
+}
+
+ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+ol li {
+    cursor: pointer;
+    background: white;
+    padding: 8px 16px;
+    border-bottom: 1px solid gray;
+}
+
+ol li:hover {
+    opacity: 0.8;
+}
+
+ol li.expense {
+    border-left: 10px solid red;
+}
+
+ol li.income {
+    border-left: 10px solid blue;
+}
+
+p {
+    margin: 4px 0;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-100 {
+    margin-bottom: 100px;
+}
+
+.form-options {
+    display: flex;
+    margin-bottom: 20px;
+}
