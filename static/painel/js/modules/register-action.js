@@ -78,10 +78,31 @@ function Calc(v) {
     GetTotal();
 }
 
+function CalcDisc(v) {
+    var index = $(v).parent().parent().index();
+
+    var qty = document.getElementsByName("qty")[index].value;
+    var price = document.getElementsByName("price")[index].value;
+    var amt = qty * price;
+
+    var disc_perc = document.getElementsByName("disc_perc")[index].value;
+    var disc_value = document.getElementsByName("disc_value")[index].value;
+
+    if (disc_perc > 0) {
+        var desc_liq = amt * disc_perc/100;
+        var amt_liq = amt - desc_liq;
+    } else {
+        var amt_liq = amt - disc_value;
+    }
+
+    document.getElementsByName("amt_liq")[index].value = parseFloat(amt_liq).toFixed(2);
+    GetTotal();
+}
+
 
 function GetTotal() {
     var sum = 0;
-    var amts = document.getElementsByName("amt");
+    var amts = document.getElementsByName("amt_liq");
 
     for (let index = 0; index < amts.length; index++) {
         var amt = amts[index].value;

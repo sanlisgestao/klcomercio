@@ -5,9 +5,9 @@ $(document).ready(function () {
 
 
 
-const GoogleRegistros = 'AKfycbyhjKe30ZXdOsdpf4lGAeec-9CPN2AkwNJQq_2-HQyWScfEQv6UGcxP8kM2uiKNLyFs';
+const GoogleRegistros = 'AKfycbyzIV2hXxJwFfENZpGS4snhUlDG4GghtZTYjOa8wHBa845RCfQsaD7VaVhM0Cnk_pEg';
 // script file sig-reg-vendas
-var linkAction = 'https://script.google.com/macros/s/AKfycbyhjKe30ZXdOsdpf4lGAeec-9CPN2AkwNJQq_2-HQyWScfEQv6UGcxP8kM2uiKNLyFs/exec';
+var linkAction = 'https://script.google.com/macros/s/AKfycbyzIV2hXxJwFfENZpGS4snhUlDG4GghtZTYjOa8wHBa845RCfQsaD7VaVhM0Cnk_pEg/exec';
 var linkFormAction = document.querySelector('#form-action');
 linkFormAction.setAttribute('action', linkAction);
 
@@ -48,7 +48,7 @@ function SearchRegistros(pNo = '') {
                         document.getElementsByName('dt_reg')[0].value = dt;
                         document.getElementsByName('status_registro')[0].value = value[3];
                         document.getElementsByName('vendedor')[0].value = value[5];
-                        document.getElementsByName('comissao')[0].value = value[19]*100;
+                        document.getElementsByName('comissao')[0].value = value[19];
                         document.getElementsByName('conta')[0].value = value[41];
                         document.getElementsByName('ccusto')[0].value = value[42];
 
@@ -82,6 +82,11 @@ function SearchRegistros(pNo = '') {
                         document.getElementsByName('amt_liq')[i].value = value[62];
                         document.getElementsByName('disc_perc')[i].value = value[59];
                         document.getElementsByName('disc_value')[i].value = value[60];
+                        qty = document.getElementsByName('qty')[i].value;
+                        price = document.getElementsByName('price')[i].value;
+                        amt = qty * price
+                        amt_value = document.getElementsByName('amt')[i];
+                        amt_value.value = amt;
                     }
                     i = i + 1;
                 });
