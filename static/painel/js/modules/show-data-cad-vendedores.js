@@ -4,9 +4,9 @@ $(document).ready(function () {
     dropdownVendedores();
     showDataAllVendedores();
 
-    dropdownRegiao();
-    dropdownSubRegiao();
-    dropdownRota();
+    // dropdownRegiao();
+    // dropdownSubRegiao();
+    // dropdownRota();
 
 });
 
@@ -15,12 +15,14 @@ const Cadastros = "AKfycbxmTZqdO_unPoTX07tknPsg_nRVmqddzpOeqTVyWNddzBUdGs8HMMSec
 // script file sig-listas
 // https://script.google.com/macros/s/AKfycbxmTZqdO_unPoTX07tknPsg_nRVmqddzpOeqTVyWNddzBUdGs8HMMSecRFfDHFG6eti/exec
 
-const Vendedores = "AKfycbwY6117XAxSDxfzVs55t1CeFUVdpiYfbPI6HS5lONHhri20FKOc8HF9LSkYWEHszVoNXQ";
+const Vendedores = "AKfycbwAUiLIMuhR5AADrRBAxlms1wYbBeYSOeBmInSjVWqQ1bD48_EMbIuvq9Wir1YBYZCo";
 // script file sig-cad-vendedores
+// https://script.google.com/macros/s/AKfycbwAUiLIMuhR5AADrRBAxlms1wYbBeYSOeBmInSjVWqQ1bD48_EMbIuvq9Wir1YBYZCo/exec
 var linkAction = '';
 var linkFormAction = document.querySelector("#form-action");
 linkFormAction.setAttribute("action", linkAction);
 
+/*
 function dropdownRegiao() {
     $.getJSON("https://script.google.com/macros/s/" + Cadastros + "/exec?page=dropdownRegiao",
         function (data) {
@@ -107,7 +109,7 @@ function showDataRota() {
             });
     });
 }
-
+*/
 
 // ****************************************************************************************************
 
@@ -172,6 +174,11 @@ function SearchEdit(pNo = "") {
                         document.getElementsByName("reg_com_mes2")[0].value = value[8];
                         document.getElementsByName("reg_com_total")[0].value = value[11];
                     }
+                    else {
+                        if (i > 1) BtnAdd();
+                        document.getElementsByName('id_vendedor')[i].value = value[22];
+                    }
+                    i = i + 1;
                 });
 
             }
@@ -215,6 +222,25 @@ function showDataAllVendedores() {
                     Rows = Rows + '<tr class="text-right tr-width tr-card">' + Columns + '</tr>';
                 });
                 $("#TBodyAllVendedor").html(Rows);
+            });
+    });
+}
+
+function showDataAllVendedoresRota() {
+    $(document).ready(function () {
+        $.getJSON("https://script.google.com/macros/s/" + Vendedores + "/exec?page=showDataRota",
+            function (data) {
+                var Table = "", Rows = "", Columns = "";
+                $.each(data, function (key, value) {
+                    var ID = "";
+                    Columns = "";
+                    $.each(value, function (key1, value1) {
+                        Columns = Columns + '<td>' + value1 + '</td>';
+                        if (ID == "") ID = value1;
+                    });
+                    Rows = Rows + '<tr class="text-right tr-width tr-card">' + Columns + '</tr>';
+                });
+                $("#TBodyAllVendedorRota").html(Rows);
             });
     });
 }

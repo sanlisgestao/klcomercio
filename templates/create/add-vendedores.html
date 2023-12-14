@@ -53,6 +53,10 @@
                                         <span class='input-group-text'>Codigo</span>
                                         <input type='text' class='form-control input-group-text' autocomplete='off'
                                             name='cod_vendedor'>
+                                            <div class='input-group-append'>
+                                                <button class='btn btn-outline-secondary busca' type='button'
+                                                    onclick='showDataEdit();'><i class='bi bi-search'></i></button>
+                                            </div>
                                     </div>
                                 </div>
                                 <div class='col-sm-7'>
@@ -61,8 +65,7 @@
                                         <input type='text' class='form-control' name='vendedor_nm' required
                                             autocomplete='off' minlength='4'>
                                         <div class='input-group-append'>
-                                            <button class='btn btn-outline-secondary busca' type='button'
-                                                onclick='showDataEdit();'><i class='bi bi-search'
+                                            <button class='btn btn-outline-secondary busca' type='button'><i class='bi bi-arrow-clockwise'
                                                     onmouseenter='refresh();'></i></button>
                                         </div>
                                     </div>
@@ -74,7 +77,7 @@
                                             name='comissao' min='0.00' max='10.000.00' step='1.00'>
                                     </div>
                                 </div>
-                            </div> <!-- codigo, nome, comissao -->
+                            </div>
 
                             <div class='row'>
 
@@ -100,7 +103,7 @@
                                     </div>
                                 </div>
 
-                            </div> <!-- partic, telefone, email -->
+                            </div>
 
                             <div class='row'>
 
@@ -143,11 +146,33 @@
                                     </div>
                                 </div>
 
-                            </div> <!-- rota, subregiao, regiao -->
+                            </div>
 
                         </div>
 
                     </section>
+
+                    <table class='table table-sm table-responsive-sm table-bordered mt-4'>
+                        <col class=m01>
+                        <thead class='table-dark'>
+                            <tr>
+                                <th scope='col' class='text-center'>Seq</th>
+                                <th scope='col' class='text-center'>Código</th>
+                                <th scope='col' class='no-print'>
+                                    <button type='button' class='btn btn-sm btn-warning' onclick='BtnAdd();'>+</button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id='TBody'>
+                            <tr id='TRow' class='d-none'>
+                                <th scope='row' class='text-center'></th>
+                                <td><input type='text' class='form-control text-center table-width-qty' name='id_vendedor'
+                                        autocomplete='off' required></td>
+                                <td class='no-print'><button type='button' class='btn btn-sm btn-danger'
+                                        onclick='BtnDel(this);'>X</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                     <section class='row mt-4'>
 
@@ -280,9 +305,7 @@
 
         </form>
 
-        <section id='nav-breadcrumb-registros'>
-            <script type='text/javascript' src='../../static/js/load.js'></script>
-        </section>
+        <section id='nav-breadcrumb-registros'></section>
 
     </main>
 
@@ -302,9 +325,9 @@
     <script type='text/javascript' src='../../static/painel/js/global/versao_title.js'></script>
     
     <script type='text/javascript' src='../../static/painel/js/modules/register-action.js'></script>
-    <!--
-    <script type='text/javascript' src='../../static/js/modules/show-data-cad-vendedores.js'></script>
-    -->
+    <script type='text/javascript' src='../../static/painel/js/modules/show-data-cad-vendedores.js'></script>
+
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'
         integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49'
         crossorigin='anonymous'></script>
