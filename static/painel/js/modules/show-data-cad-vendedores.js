@@ -4,25 +4,24 @@ $(document).ready(function () {
     dropdownVendedores();
     showDataAllVendedores();
 
-    // dropdownRegiao();
-    // dropdownSubRegiao();
-    // dropdownRota();
+    dropdownRegiao();
+    dropdownSubRegiao();
+    dropdownRota();
 
 });
 
 
-const Cadastros = "AKfycbxmTZqdO_unPoTX07tknPsg_nRVmqddzpOeqTVyWNddzBUdGs8HMMSecRFfDHFG6eti";
+const Cadastros = "AKfycbzcw9SZk3k0pEQZ04jm9bFhG12fct2qi_Szvdk5B5yYAbv5coMzCe9bgylO1__ljK3i";
 // script file sig-listas
-// https://script.google.com/macros/s/AKfycbxmTZqdO_unPoTX07tknPsg_nRVmqddzpOeqTVyWNddzBUdGs8HMMSecRFfDHFG6eti/exec
+// https://script.google.com/macros/s/AKfycbzcw9SZk3k0pEQZ04jm9bFhG12fct2qi_Szvdk5B5yYAbv5coMzCe9bgylO1__ljK3i/exec
 
-const Vendedores = "AKfycbwAUiLIMuhR5AADrRBAxlms1wYbBeYSOeBmInSjVWqQ1bD48_EMbIuvq9Wir1YBYZCo";
+const Vendedores = "AKfycbwW9vfeQ0ShSivB1eXJU3GstkzTgPh1d_hW6Jest5aaUoDReoegLNIAMd3wGCjBJx6F";
 // script file sig-cad-vendedores
-// https://script.google.com/macros/s/AKfycbwAUiLIMuhR5AADrRBAxlms1wYbBeYSOeBmInSjVWqQ1bD48_EMbIuvq9Wir1YBYZCo/exec
-var linkAction = '';
+var linkAction = 'https://script.google.com/macros/s/AKfycbwW9vfeQ0ShSivB1eXJU3GstkzTgPh1d_hW6Jest5aaUoDReoegLNIAMd3wGCjBJx6F/exec';
 var linkFormAction = document.querySelector("#form-action");
 linkFormAction.setAttribute("action", linkAction);
 
-/*
+
 function dropdownRegiao() {
     $.getJSON("https://script.google.com/macros/s/" + Cadastros + "/exec?page=dropdownRegiao",
         function (data) {
@@ -109,7 +108,7 @@ function showDataRota() {
             });
     });
 }
-*/
+
 
 // ****************************************************************************************************
 

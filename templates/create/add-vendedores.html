@@ -53,10 +53,10 @@
                                         <span class='input-group-text'>Codigo</span>
                                         <input type='text' class='form-control input-group-text' autocomplete='off'
                                             name='cod_vendedor'>
-                                            <div class='input-group-append'>
-                                                <button class='btn btn-outline-secondary busca' type='button'
-                                                    onclick='showDataEdit();'><i class='bi bi-search'></i></button>
-                                            </div>
+                                        <div class='input-group-append'>
+                                            <button class='btn btn-outline-secondary busca' type='button'
+                                                onclick='showDataEdit();'><i class='bi bi-search'></i></button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class='col-sm-7'>
@@ -65,7 +65,8 @@
                                         <input type='text' class='form-control' name='vendedor_nm' required
                                             autocomplete='off' minlength='4'>
                                         <div class='input-group-append'>
-                                            <button class='btn btn-outline-secondary busca' type='button'><i class='bi bi-arrow-clockwise'
+                                            <button class='btn btn-outline-secondary busca' type='button'><i
+                                                    class='bi bi-arrow-clockwise'
                                                     onmouseenter='refresh();'></i></button>
                                         </div>
                                     </div>
@@ -152,12 +153,17 @@
 
                     </section>
 
-                    <table class='table table-sm table-responsive-sm table-bordered mt-4'>
+                    <input type='hidden' name='IsNew' id='IsNew' value='Y'>
+                    <input type='hidden' name='StartRow' id='StartRow' value='0'>
+                    <input type='hidden' name='RowCount' id='RowCount' value='0'>
+
+                    <table class='table table-sm table-responsive-sm table-bordered mt-4 d-none'>
                         <col class=m01>
                         <thead class='table-dark'>
                             <tr>
                                 <th scope='col' class='text-center'>Seq</th>
                                 <th scope='col' class='text-center'>Código</th>
+                                <th scope='col' class='text-center'>Qtd</th>
                                 <th scope='col' class='no-print'>
                                     <button type='button' class='btn btn-sm btn-warning' onclick='BtnAdd();'>+</button>
                                 </th>
@@ -166,8 +172,11 @@
                         <tbody id='TBody'>
                             <tr id='TRow' class='d-none'>
                                 <th scope='row' class='text-center'></th>
-                                <td><input type='text' class='form-control text-center table-width-qty' name='id_vendedor'
-                                        autocomplete='off' required></td>
+                                <td><input type='text' class='form-control text-center table-width-qty'
+                                        name='id_vendedor' autocomplete='off' required></td>
+                                <td><input type='number' class='form-control text-right table-width-qty' name='qty'
+                                        min='1' value="0">
+                                </td>
                                 <td class='no-print'><button type='button' class='btn btn-sm btn-danger'
                                         onclick='BtnDel(this);'>X</button></td>
                             </tr>
@@ -270,10 +279,8 @@
 
                             <div class='row text-center mt-3 mb-4'>
                                 <div class='col-sm-6'>
-                                    <a href='../../templates/create/add-vendedores.html'>
-                                        <button type='button' class='btn btn-primary px-3 my-1'>Salvar
-                                        </button>
-                                    </a>
+                                    <button type='submit' class='btn btn-primary px-3 my-1'
+                                        onclick='Validar()'>Salvar</button>
                                 </div>
                                 <div class='col-sm-6'>
                                     <a href='../../templates/read/list-vendedores.html'>
@@ -323,7 +330,7 @@
 
     <script type='text/javascript' src='../../static/painel/js/load.js'></script>
     <script type='text/javascript' src='../../static/painel/js/global/versao_title.js'></script>
-    
+
     <script type='text/javascript' src='../../static/painel/js/modules/register-action.js'></script>
     <script type='text/javascript' src='../../static/painel/js/modules/show-data-cad-vendedores.js'></script>
 
